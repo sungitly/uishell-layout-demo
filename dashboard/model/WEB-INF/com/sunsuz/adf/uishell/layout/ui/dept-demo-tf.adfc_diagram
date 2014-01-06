@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">department</property>
+      <property
+         name="page">/com/sunsuz/adf/uishell/layout/ui/fragments/department.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>department&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">273.29883</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">361.0</property>
+   </View>
+</SDM>

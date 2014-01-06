@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="dashboardBundle"
+         value="#{adfBundle['com.sunsuz.adf.uishell.layout.ui.dashboardBundle']}"/>
+  <af:outputLabel value="#{dashboardBundle.DEPARTMENT_DETAILS}" id="ol1"/>
+</jsp:root>

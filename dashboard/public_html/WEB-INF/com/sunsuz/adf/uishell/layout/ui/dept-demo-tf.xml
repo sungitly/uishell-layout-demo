@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="dept-demo-tf">
+    <default-activity id="__1">department</default-activity>
+    <input-parameter-definition id="__7">
+      <name id="__6">tabContext</name>
+      <value>#{pageFlowScope.tabContext}</value>
+      <class>com.sunsuz.adf.uishell.layout.ui.tab.TabContext</class>
+    </input-parameter-definition>
+    <managed-bean id="__2">
+      <managed-bean-name id="__5">departmentRegionSwitcher</managed-bean-name>
+      <managed-bean-class id="__3">com.sunsuz.adf.uishell.layout.ui.beans.DepartmentRegionSwitcher</managed-bean-class>
+      <managed-bean-scope id="__4">view</managed-bean-scope>
+    </managed-bean>
+    <view id="department">
+      <page>/com/sunsuz/adf/uishell/layout/ui/fragments/department.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

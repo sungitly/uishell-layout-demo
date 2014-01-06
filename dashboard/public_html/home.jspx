@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"          
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <c:set var="dashboardBundle"
+         value="#{adfBundle['com.sunsuz.adf.uishell.layout.ui.dashboardBundle']}"/>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" maximized="true" title="#{dashboardBundle.PAGE_TITLE}">
+      <af:form id="f1">
+        <af:pageTemplate viewId="/com/sunsuz/adf/uishell/layout/ui/templates/tabLayoutTemplateDef.jspx"
+                         value="#{bindings.pageTemplateBinding}" id="pt1">
+          <f:attribute name="navigationPanelHeader"
+                       value="#{sessionScope.DEPARTMENT_NAME}"/>
+          <f:facet name="navigation">
+            <af:declarativeComponent id="nav" viewId="/com/sunsuz/adf/uishell/layout/ui/fragments/navigation.jsff"/>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

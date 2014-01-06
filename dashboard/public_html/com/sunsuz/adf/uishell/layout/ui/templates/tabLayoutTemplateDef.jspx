@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:trh="http://myfaces.apache.org/trinidad/html">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <c:set var="dashboardBundle"
+         value="#{adfBundle['com.sunsuz.adf.uishell.layout.ui.dashboardBundle']}"/>
+  <!-- Put all your customized css in custom.css. Try avoid using inline style. -->
+  <af:resource type="css" source="/styles/custom.css"/>
+  <af:pageTemplateDef var="attrs">
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>Tab Layout Template</display-name>
+        <facet>
+          <facet-name>navigation</facet-name>
+        </facet>
+        <facet>
+          <facet-name>nonVisualPanel</facet-name>
+        </facet>
+        <attribute>
+          <attribute-name>navigationPanelHeader</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <default-value>Please select a department</default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>tooManyTabsPopupTitle</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <default-value>Too Many Tabs Open</default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>tooManyTabsPopupText</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <default-value>You have too many tabs open. You will need to close
+                         some tabs before opening new ones.</default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>dirtyTabPopupTitle</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <default-value>Current Tab is Dirty</default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>dirtyTabPopupText</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <default-value>The current tab is dirty, would you like to close it
+                         anyway?</default-value>
+        </attribute>
+      </component>
+    </af:xmlContent>
+    <!-- Main Section Start -->
+    <!-- AFVisualRoot class is used becasue the panelStretchLayout is not stretched correctly when included by af:pageTemplate in JDev 11.1.1.6 -->
+    <af:panelStretchLayout id="container_psl">
+      <f:facet name="center">
+        <af:decorativeBox id="bg_db" theme="contentBody">
+          <f:facet name="center">
+            <af:panelStretchLayout id="main_psl" bottomHeight="0"
+                                   topHeight="60">
+              <f:facet name="top">
+                <!-- Header Section Start -->
+                <af:panelGroupLayout id="header_pgl">
+                  <!-- Top header line which includes logo, title, login information and statusc indicator. -->
+                  <trh:tableLayout id="tl1" width="100%">
+                    <trh:rowLayout id="rl1">
+                      <trh:cellFormat id="cf1">
+                        <af:panelGroupLayout id="pg1">
+                          <af:image source="/media/logo/appsux/orcl_sm.gif"
+                                    id="i1"
+                                    shortDesc="#{dashboardBundle.ORACLE_LOGO}"/>
+                          <af:spacer width="10" id="s1"/>
+                          <af:outputText value="#{dashboardBundle.PAGE_TITLE}"
+                                         id="ot1" styleClass="header-title"/>
+                        </af:panelGroupLayout>
+                      </trh:cellFormat>
+                      <trh:cellFormat id="cf2" halign="right">
+                        <af:panelGroupLayout id="cf2_pg1" halign="right">
+                          <af:image source="/media/icons/glbl_login_msg.gif"
+                                    id="i2"
+                                    shortDesc="#{dashboardBundle.LOGIN_INFO_ICON}"/>
+                          <af:outputText value="#{dashboardBundle.LOGIN_INFO}"
+                                         styleClass="header-text" id="ot2"/>
+                          <af:spacer width="10" id="s2"/>
+                          <af:statusIndicator id="si1"/>
+                        </af:panelGroupLayout>
+                      </trh:cellFormat>
+                    </trh:rowLayout>
+                  </trh:tableLayout>
+                  <af:spacer height="5" id="pt_s2"/>
+                  <!-- Bottom header line which navigation menu, help and logout links. -->
+                  <trh:tableLayout id="tl2" width="100%">
+                    <trh:rowLayout id="rl2">
+                      <trh:cellFormat id="rl2_cf1">
+                        <af:panelGroupLayout id="rl2_cf1_pg1">
+                          <af:navigationPane id="pt_np1" hint="bar">
+                            <af:commandNavigationItem text="#{dashboardBundle.HOME}"
+                                                      styleClass="header-nav"
+                                                      id="pt_cni1"/>
+                          </af:navigationPane>
+                        </af:panelGroupLayout>
+                      </trh:cellFormat>
+                      <trh:cellFormat id="rl2_cf2" halign="right">
+                        <af:panelGroupLayout id="rl2_cf1_pg2" halign="right">
+                          <!-- Use af:image + af:commandLink instead of af:commandImageLink becasue the style of text inside commandImageLink can't be customized even using inline style. -->
+                          <af:image source="/media/icons/glbl_help.gif"
+                                    shortDesc="#{dashboardBundle.HELP}"
+                                    id="pt_i1"/>
+                          <af:commandLink text="#{dashboardBundle.HELP}"
+                                          styleClass="header-link" id="pt_cl1"/>
+                          <af:spacer width="10" height="10" id="pt_s1"/>
+                          <af:image source="/media/icons/glbl_logout.gif"
+                                    shortDesc="#{dashboardBundle.LOGOUT}"
+                                    id="pt_i2"/>
+                          <af:commandLink text="#{dashboardBundle.LOGOUT}"
+                                          styleClass="header-link" id="pt_cl2"/>
+                        </af:panelGroupLayout>
+                      </trh:cellFormat>
+                    </trh:rowLayout>
+                  </trh:tableLayout>
+                </af:panelGroupLayout>
+                <!-- Header Section End -->
+              </f:facet>
+              <f:facet name="center">
+                <af:panelStretchLayout id="body_psl1" topHeight="30">
+                  <f:facet name="top">
+                    <!-- Body Toobar Panel Start -->
+                    <af:panelGroupLayout id="pt_pgl2">
+                      <trh:tableLayout id="pt_tl12" width="100%">
+                        <trh:rowLayout id="pt_rl12">
+                          <trh:cellFormat id="pt_cf22" halign="right">
+                            <af:panelGroupLayout id="header_pg22"
+                                                 halign="right">
+                              <af:commandButton text="#{dashboardBundle.SAVE_CHANGES}"
+                                                id="pt_cb1"/>
+                              <af:spacer width="10" height="10" id="pt_s5"/>
+                              <af:commandButton text="#{dashboardBundle.CANCEL}"
+                                                id="pt_cb2"/>
+                            </af:panelGroupLayout>
+                          </trh:cellFormat>
+                        </trh:rowLayout>
+                      </trh:tableLayout>
+                    </af:panelGroupLayout>
+                    <!-- Body Toobar Panel End -->
+                  </f:facet>
+                  <f:facet name="center">
+                    <af:decorativeBox id="db1" topHeight="26px" theme="light">
+                      <f:facet name="top">
+                        <af:navigationPane id="np1">
+                          <af:commandNavigationItem text="#{attrs.navigationPanelHeader}"
+                                                    partialSubmit="true"
+                                                    binding="#{viewScope.navigationBean.navigationPanelHeader}"
+                                                    selected="true" id="cni1"/>
+                        </af:navigationPane>
+                      </f:facet>
+                      <f:facet name="center">
+                        <af:panelSplitter id="pt_ps1">
+                          <f:facet name="first">
+                            <af:facetRef facetName="navigation"/>
+                          </f:facet>
+                          <f:facet name="second">
+                            <af:panelStretchLayout id="pt_psl4"
+                                                   binding="#{viewScope.tabContext.contentArea}">
+                              <f:facet name="top">
+                                <af:panelBorderLayout id="pt_psl6"
+                                                      styleClass="AFStretchWidth"
+                                                      rendered="true">
+                                  <af:navigationPane id="pt_np2" hint="tabs"
+                                                     itemRemoval="all"
+                                                     binding="#{viewScope.tabContext.tabsNavigationPane}"
+                                                     rendered="#{viewScope.tabContext.selectedTabIndex != -1}"
+                                                     value="#{viewScope.tabContext.tabMenuModel}"
+                                                     var="tab">
+                                    <f:facet name="nodeStamp">
+                                      <af:commandNavigationItem id="tabIndex"
+                                                                rendered="#{tab.active}"
+                                                                actionListener="#{viewScope.tabContext.tabActivatedEvent}"
+                                                                itemListener="#{viewScope.tabContext.tabRemovedEvent}"
+                                                                inlineStyle="#{tab.dirty ? 'font-style: italic' : ''}"
+                                                                partialSubmit="true"
+                                                                text="#{tab.name}">
+                                        <f:attribute name="tabIndex"
+                                                     value="#{tab.index}"/>
+                                      </af:commandNavigationItem>
+                                    </f:facet>
+                                  </af:navigationPane>
+                                  <!-- Comment the close button in the left right corner since remove icon is enabled in each tab -->
+                                  <!--
+                                  <f:facet name="end">
+                                    <af:commandImageLink icon="/media/icons/close.png"
+                                                         hoverIcon="/media/icons/closeHover.png"
+                                                         actionListener="#{viewScope.tabContext.tabRemovedEvent}"
+                                                         rendered="#{viewScope.tabContext.selectedTabIndex != -1}"
+                                                         partialSubmit="true"
+                                                         id="pt_cil1"/>
+                                  </f:facet>
+                                  -->
+                                </af:panelBorderLayout>
+                              </f:facet>
+                              <f:facet name="center">
+                                <af:group id="pt_g1">
+                                  <af:panelStretchLayout id="pt_psl7"
+                                                         rendered="#{viewScope.tabContext.selectedTabIndex == -1}"></af:panelStretchLayout>
+                                  <af:region value="#{viewScope.tabContext.tabs[0].binding.regionModel}"
+                                             id="r_tab0"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 0}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[1].binding.regionModel}"
+                                             id="r_tab1"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 1}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[2].binding.regionModel}"
+                                             id="r_tab2"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 2}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[3].binding.regionModel}"
+                                             id="r_tab3"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 3}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[4].binding.regionModel}"
+                                             id="r_tab4"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 4}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[5].binding.regionModel}"
+                                             id="r_tab5"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 5}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[6].binding.regionModel}"
+                                             id="r_tab6"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 6}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[7].binding.regionModel}"
+                                             id="r_tab7"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 7}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[8].binding.regionModel}"
+                                             id="r_tab8"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 8}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[9].binding.regionModel}"
+                                             id="r_tab9"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 9}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[10].binding.regionModel}"
+                                             id="r_tab10"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 10}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[11].binding.regionModel}"
+                                             id="r_tab11"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 11}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[12].binding.regionModel}"
+                                             id="r_tab12"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 12}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[13].binding.regionModel}"
+                                             id="r_tab13"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 13}"/>
+                                  <af:region value="#{viewScope.tabContext.tabs[14].binding.regionModel}"
+                                             id="r_tab14"
+                                             rendered="#{viewScope.tabContext.selectedTabIndex == 14}"/>
+                                </af:group>
+                              </f:facet>
+                            </af:panelStretchLayout>
+                          </f:facet>
+                        </af:panelSplitter>
+                      </f:facet>
+                    </af:decorativeBox>
+                  </f:facet>
+                </af:panelStretchLayout>
+              </f:facet>
+              <f:facet name="bottom">
+                <af:panelGroupLayout id="footer_pgl1">
+                  <!--
+                       Include af:popup copmponents here. <af:popup id="ConfirmPopup" ... />
+                  -->
+                  <!-- Try to avoid using javascript as possible as you can. If not, please put your scripts in the custom.js file. -->
+                  <af:resource type="javascript" source="/js/custom.js"/>
+                  <af:facetRef facetName="nonVisualPanel"/>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </f:facet>
+    </af:panelStretchLayout>
+    <!-- Main Section End -->
+    <af:popup id="pt_toomanytabs" clientComponent="true" contentDelivery="lazy"
+              binding="#{viewScope.tabContext.tooManyTabsPopup}">
+      <af:dialog title="#{attrs.tooManyTabsPopupTitle}" type="ok" id="pt_d1">
+        <af:outputText value="#{attrs.tooManyTabsPopupText}" id="pt_ot2"/>
+      </af:dialog>
+    </af:popup>
+    <af:popup id="pt_tabdirty" clientComponent="true" contentDelivery="lazy"
+              binding="#{viewScope.tabContext.tabDirtyPopup}">
+      <af:dialog title="#{attrs.dirtyTabPopupTitle}" type="yesNo" id="pt_d2"
+                 dialogListener="#{viewScope.tabContext.handleDirtyTabDialog}">
+        <af:outputText value="#{attrs.dirtyTabPopupText}" id="pt_ot3"/>
+      </af:dialog>
+    </af:popup>
+  </af:pageTemplateDef>
+</jsp:root>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="dashboardBundle"
+         value="#{adfBundle['com.sunsuz.adf.uishell.layout.ui.dashboardBundle']}"/>
+  <af:decorativeBox id="db1" topHeight="26px" theme="light"
+                    inlineStyle="margin:20px">
+    <f:facet name="top">
+      <af:navigationPane id="np1">
+        <af:commandNavigationItem text="#{dashboardBundle.DEPARTMENT_INFO}"
+                                  id="cni1"
+                                  selected="#{viewScope.departmentRegionSwitcher.deptInfoTabActive}"
+                                  action="#{viewScope.departmentRegionSwitcher.deptinfotf}"/>
+        <af:commandNavigationItem text="#{dashboardBundle.DEPARTMENT_DETAILS}"
+                                  id="cni2"
+                                  selected="#{viewScope.departmentRegionSwitcher.deptDetailsTabActive}"
+                                  action="#{viewScope.departmentRegionSwitcher.deptdetailstf}"/>
+      </af:navigationPane>
+    </f:facet>
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl0">
+        <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
+                   partialTriggers="::np1:cni1 ::np1:cni2" />
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:decorativeBox>
+</jsp:root>

@@ -1,0 +1,31 @@
+.header-title {
+    font-size: large;
+    font-weight: bold;
+    color: White;
+}
+
+.header-text {
+    color: White;
+}
+
+.header-link[theme="dark"] {
+    color: White;
+    text-decoration: none;
+}
+
+.header-link:hover[theme="dark"] {
+    color: White;
+    text-decoration: none;
+}
+
+.header-nav[theme="dark"] {
+    font-weight: bold;
+    color: White;
+    text-decoration: none;
+}
+
+.hr-list-node ul {
+    list-style-type: none;
+    margin: 10px;
+    padding: 0px;
+}

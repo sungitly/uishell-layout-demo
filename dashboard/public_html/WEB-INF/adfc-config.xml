@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__5">
+    <managed-bean-name id="__6">navigationBean</managed-bean-name>
+    <managed-bean-class id="__7">com.sunsuz.adf.uishell.layout.ui.beans.NavigationBean</managed-bean-class>
+    <managed-bean-scope id="__4">view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__8">
+    <managed-bean-name id="__1">tabContext</managed-bean-name>
+    <managed-bean-class id="__3">com.sunsuz.adf.uishell.layout.ui.tab.TabContext</managed-bean-class>
+    <managed-bean-scope id="__2">view</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

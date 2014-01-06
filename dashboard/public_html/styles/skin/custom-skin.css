@@ -1,0 +1,33 @@
+af|statusIndicator::idle-icon {
+    content: url("../../media/status/status_idle.gif");
+}
+
+af|statusIndicator::processing-icon {
+    content: url("../../media/status/status_busy.gif");
+}
+
+af|statusIndicator::connected-icon {
+    content: url("../../media/status/status_connected.gif");
+}
+
+af|statusIndicator::connecting-icon {
+    content: url("../../media/status/status_connecting.gif");
+}
+
+af|statusIndicator::disconnected-icon {
+    content: url("../../media/status/status_disconnected.gif");
+}
+
+af|statusIndicator::reconnecting-icon {
+    content: url("../../media/status/status_reconnecting.gif");
+}
+
+af|navigationPane-tabs::disclosed-remove-icon-style {
+    background-image: url("../../media/icons/removeTab_ena.png");
+    margin-left: 10px;
+}
+
+af|navigationPane-tabs::undisclosed-remove-icon-style {
+    background-image: url("../../media/icons/removeTab_ena.png");
+    margin-left: 10px;
+}

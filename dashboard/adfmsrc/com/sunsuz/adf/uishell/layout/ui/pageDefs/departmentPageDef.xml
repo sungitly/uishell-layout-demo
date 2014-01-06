@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.62.29" id="departmentPageDef"
+                Package="com.sunsuz.adf.uishell.layout.ui.pageDefs">
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="dynamicRegion1" taskFlowId="${viewScope.departmentRegionSwitcher.dynamicTaskFlowId}"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="tabContext" value="${pageFlowScope.tabContext}" xmlns="http://xmlns.oracle.com/adfm/uimodel"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="dashboardBundle"
+         value="#{adfBundle['com.sunsuz.adf.uishell.layout.ui.dashboardBundle']}"/>
+  <af:panelAccordion id="pt_pa1" discloseMany="true">
+    <af:showDetailItem text="#{dashboardBundle.DEPARTMENTS}" flex="1"
+                       id="pt_sdi1">
+      <af:panelGroupLayout id="pt_pgl1" layout="scroll">
+        <af:panelList id="pt_pl1" styleClass="hr-list-node">
+          <af:commandImageLink text="Administrator"
+                               icon="/media/icons/confirmation.png" id="pt_cil3"
+                               partialSubmit="true"
+                               actionListener="#{viewScope.navigationBean.onDepartmentSelected}">
+            <f:attribute name="DEPARTMENT_NAME" value="Administrator"/>
+          </af:commandImageLink>
+          <af:commandImageLink text="IT"
+                               actionListener="#{viewScope.navigationBean.onDepartmentSelected}"
+                               icon="/media/icons/confirmation.png"
+                               partialSubmit="true" id="pt_cil4">
+            <f:attribute name="DEPARTMENT_NAME" value="IT"/>
+          </af:commandImageLink>
+          <af:commandImageLink text="IT Helpdesk" partialSubmit="true"
+                               icon="/media/icons/confirmation.png"
+                               actionListener="#{viewScope.navigationBean.onDepartmentSelected}"
+                               id="pt_cil5">
+            <f:attribute name="DEPARTMENT_NAME" value="IT Helpdesk"/>
+          </af:commandImageLink>
+          <af:commandImageLink text="Research" partialSubmit="true"
+                               icon="/media/icons/confirmation.png"
+                               actionListener="#{viewScope.navigationBean.onDepartmentSelected}"
+                               id="pt_cil6">
+            <f:attribute name="DEPARTMENT_NAME" value="Research"/>
+          </af:commandImageLink>
+        </af:panelList>
+      </af:panelGroupLayout>
+    </af:showDetailItem>
+    <af:showDetailItem text="#{dashboardBundle.FAVORITES}" flex="1"
+                       id="pt_sdi3"/>
+    <af:showDetailItem text="#{dashboardBundle.LINKS}" flex="1" id="pt_sdi4"/>
+    <af:showDetailItem text="#{dashboardBundle.ACTIONS}" flex="1" id="pt_sdi5"/>
+  </af:panelAccordion>
+</jsp:root>

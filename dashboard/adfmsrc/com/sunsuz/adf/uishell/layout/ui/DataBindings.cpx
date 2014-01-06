@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.62.29" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.sunsuz.adf.uishell.layout.ui" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/com/sunsuz/adf/uishell/layout/ui/templates/tabLayoutTemplateDef.jspx"
+          usageId="com_sunsuz_adf_uishell_layout_ui_tabLayoutTemplateDefPageDef"/>
+    <page path="/home.jspx"
+          usageId="com_sunsuz_adf_uishell_layout_ui_homePageDef"/>
+    <page path="/com/sunsuz/adf/uishell/layout/ui/fragments/department.jsff"
+          usageId="com_sunsuz_adf_uishell_layout_ui_departmentPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_sunsuz_adf_uishell_layout_ui_tabLayoutTemplateDefPageDef"
+          path="com.sunsuz.adf.uishell.layout.ui.pageDefs.tabLayoutTemplateDefPageDef"/>
+    <page id="com_sunsuz_adf_uishell_layout_ui_homePageDef"
+          path="com.sunsuz.adf.uishell.layout.ui.pageDefs.homePageDef"/>
+    <page id="com_sunsuz_adf_uishell_layout_ui_departmentPageDef"
+          path="com.sunsuz.adf.uishell.layout.ui.pageDefs.departmentPageDef"/>
+  </pageDefinitionUsages>
+</Application>

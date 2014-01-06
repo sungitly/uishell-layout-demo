@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="dept-info-tf">
+    <default-activity id="__1">departmentInfo</default-activity>
+    <input-parameter-definition id="__2">
+      <name id="__3">tabContext</name>
+      <value>#{pageFlowScope.tabContext}</value>
+      <class>com.sunsuz.adf.uishell.layout.ui.tab.TabContext</class>
+    </input-parameter-definition>
+    <managed-bean id="__8">
+      <managed-bean-name id="__7">departmentInfoBean</managed-bean-name>
+      <managed-bean-class id="__6">com.sunsuz.adf.uishell.layout.ui.beans.DepartmentInfoBean</managed-bean-class>
+      <managed-bean-scope id="__9">view</managed-bean-scope>
+    </managed-bean>
+    <view id="departmentInfo">
+      <page>/com/sunsuz/adf/uishell/layout/ui/fragments/departmentInfo.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
