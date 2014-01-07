@@ -16,3 +16,5 @@ Screenshots:
 3. Max Tabs Limit Warning
 <img src="max_tab_limit.png" alt="max tab limit" height="480px" width="600px">
 
+> Note: It is tested on JDeveloper 11.1.1.6 only.
+
